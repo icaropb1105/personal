@@ -1,31 +1,81 @@
 body {
+    background-color: #f0f8ff;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
 }
 
-#game {
-    text-align: center;
-    background-color: white;
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.option {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+h1, h2 {
+    color: #333;
 }
 
-.option:hover {
+p {
+    color: #555;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.options {
+    display: none;
+    margin-top: 20px;
+}
+
+.options button {
+    display: block;
+    background-color: #007BFF;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.options button:hover {
     background-color: #0056b3;
+}
+
+.game-over {
+    display: none;
+    margin-top: 20px;
+}
+
+.game-over button {
+    background-color: #FF6347;
+}
+
+.game-over button:hover {
+    background-color: #FF4500;
+}
+
+#gameOverImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: none;
+    text-align: center; /* Adicionando centralização */
+    justify-content: center;
+    justify-self: center;
 }

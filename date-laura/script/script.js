@@ -1,44 +1,19 @@
-const questions = [
-    {
-        question: "Você está em uma floresta. Você vai para a esquerda (A) ou para a direita (B)?",
-        options: {
-            A: "Você encontra um rio.",
-            B: "Você encontra uma caverna."
-        }
-    },
-    {
-        question: "Você quer nadar no rio (A) ou explorar a caverna (B)?",
-        options: {
-            A: "Você encontra um tesouro submerso.",
-            B: "Você encontra um dragão!"
-        }
-    }
-];
+document.getElementById('startBtn').addEventListener('click', function() {
+    document.getElementById('welcomeMessage').style.display = 'none';  // Oculta a mensagem de boas-vindas
+    document.getElementById('options').style.display = 'block'; // Mostra as opções
+});
 
-let currentQuestion = 0;
-
-function loadQuestion() {
-    const questionElement = document.getElementById("question");
-    const optionA = document.querySelector(".option:nth-child(1)");
-    const optionB = document.querySelector(".option:nth-child(2)");
-
-    questionElement.textContent = questions[currentQuestion].question;
-    optionA.textContent = "A: " + questions[currentQuestion].options.A;
-    optionB.textContent = "B: " + questions[currentQuestion].options.B;
+function endGame(message, imageSrc) {
+    document.getElementById('options').style.display = 'none'; // Esconde as opções
+    document.getElementById('gameOver').style.display = 'block'; // Mostra a tela de Game Over
+    document.getElementById('gameOverMessage').textContent = message; // Atualiza a mensagem de Game Over
+    document.getElementById('gameOverImage').src = imageSrc; // Define a imagem de Game Over
+    document.getElementById('gameOverImage').style.display = 'block'; // Exibe a imagem
 }
 
-function selectOption(option) {
-    if (option === 'A') {
-        currentQuestion++;
-    } else {
-        currentQuestion += 2; // avança 2 para uma nova pergunta
-    }
-
-    if (currentQuestion < questions.length) {
-        loadQuestion();
-    } else {
-        document.getElementById("game").innerHTML = "<h1>Fim da História!</h1>";
-    }
+function restartGame() {
+    document.getElementById('gameOver').style.display = 'none'; // Esconde a tela de Game Over
+    document.getElementById('options').style.display = 'none'; // Esconde as opções
+    document.getElementById('welcomeMessage').style.display = 'block'; // Mostra a mensagem de boas-vindas
+    document.getElementById('gameOverImage').style.display = 'none'; // Esconde a imagem
 }
-
-loadQuestion();
